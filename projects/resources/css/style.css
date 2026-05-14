@@ -1,0 +1,138 @@
+* {
+  color: white;
+  padding: 10px 10px;
+}
+
+
+body {
+  background: #EEE;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(-45deg, #35577D, #141E30);
+}
+
+/* Navigation */
+
+.navigation {
+  box-sizing: border-box;
+  background-color: #3587A4;
+  overflow: auto;
+  padding: 18px 50px;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  color: blue;
+}
+
+
+.active {
+  color: #88CCF1;
+}
+
+/* Table */
+
+table {
+  left: 10%;
+  margin: 20px auto;
+  overflow-y: scroll;
+  position: static;
+  width: 80%;
+  color: black;
+  height:1000px;
+  overflow: scroll;
+}
+
+thead th {
+  background: #88CCF1;
+  color: black;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+tr {
+  background: #f4f7f8;
+  border-bottom: 1px solid #FFF;
+  margin-bottom: 5px;
+  color: black;
+}
+
+th, td {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  padding: 20px;
+  text-align: left;
+  width: 33.3333%;
+  font-size: 18px;
+  color: black;
+}
+
+td a{
+  color: black;
+}
+
+
+.search {
+  background-color: #FFF;
+  border: 1px solid #DDD;
+  border-radius: 3px;
+  color: #AAA;
+  padding: 20px;
+  margin: 50px auto 0px auto;
+  width: 77%;
+}
+
+p {
+    font-size: 15px;
+    font-family: Helvetica;
+}
+
+h1 {
+    font-size: 45px;
+    font-family: Georgia;
+    padding: 20px;      
+}
+
+h2 {
+    font-size: 35px;
+    font-family: Georgia;
+    text-align: center;
+    border: 1px dotted rgb(10, 221, 225);
+    border-radius: 10px;
+    padding: 10px;  
+}
+
+h3 {
+    font-size: 25px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.title{
+    font-family: cursive;
+    text-align: center;
+}
+
+a:hover {
+  color: rgb(22, 150, 54);
+}
+
+.skill-list {
+  margin-left: 10px;
+}
+
+.work-list {
+  margin-left: 10px;
+}
+
+.my-pics {
+  display: inline-block;
+}
+
+.my-pics {
+  display: inline;
+}

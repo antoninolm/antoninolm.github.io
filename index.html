@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of [Your Name] — web developer. Built with HTML and CSS. Zero JavaScript.">
+  <meta name="description" content="Portfolio of Antonino La Manna — web developer. Built with HTML and CSS. Zero JavaScript.">
   <meta name="color-scheme" content="light dark">
-  <title>[Your Name] // Web Developer</title>
+  <title> Antonino La Manna // Web Developer</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/tokens.css">
@@ -16,6 +16,13 @@
 </head>
 <body>
 
+  <div id="scroll-progress"
+       role="progressbar"
+       aria-label="Page scroll progress"
+       aria-valuenow="0"
+       aria-valuemin="0"
+       aria-valuemax="100"></div>
+
   <a class="skip-link" href="#top">Skip to content</a>
 
   <input type="checkbox" id="theme-toggle" class="state-input" aria-hidden="true" tabindex="-1">
@@ -24,7 +31,7 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="#top">
-        <span class="brand__bracket">[</span>YOUR NAME<span class="brand__bracket">]</span>
+        <span class="brand__bracket">[</span>Antonino La Manna<span class="brand__bracket">]</span>
       </a>
 
       <label for="nav-toggle" class="hamburger" role="button" tabindex="0" aria-label="Toggle navigation menu">
@@ -58,11 +65,13 @@
           <p class="hero__eyebrow">// PORTFOLIO_v1.0</p>
           <h1 class="hero__title">
             HI, I&rsquo;M<br>
-            <span class="hero__name">YOUR&nbsp;NAME</span>.
+            <span class="hero__name">ANTONINO&nbsp;LA&nbsp;MANNA</span>.
           </h1>
+          <br>
           <p class="hero__tagline">
-            I build the web with stubborn HTML, opinionated CSS, and absolutely zero JavaScript.
+            I am learning web development — currently exploring HTML, CSS, and JavaScript to build things that work and look good.
           </p>
+          <br>
           <div class="hero__cta-row">
             <a class="btn btn--primary" href="#projects">SEE THE WORK &rarr;</a>
             <a class="btn btn--ghost" href="#contact">GET IN TOUCH</a>
@@ -70,34 +79,41 @@
         </div>
 
         <aside class="hero__card" aria-label="At a glance">
+          <br>
           <h2 class="hero__card-title">// AT_A_GLANCE</h2>
           <dl class="hero__card-list">
             <dt>BASED IN</dt><dd>Earth, mostly</dd>
-            <dt>FOCUS</dt><dd>Static sites, design systems</dd>
+            <dt>FOCUS</dt><dd>Static &amp; dynamic sites, JavaScript, Data Science, Music</dd>
             <dt>YEARS</dt><dd>Many. Some good ones.</dd>
             <dt>STATUS</dt><dd><span class="dot dot--live"></span>Available for work</dd>
           </dl>
         </aside>
       </div>
-
+      <br>
       <div class="container">
         <div class="about">
           <h2 class="section-label">// ABOUT</h2>
           <p class="about__lede">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. I make websites the way carpenters make
-            chairs: one well-cut joint at a time, with tools you can sharpen yourself.
+            I work at the intersection of business and technology, bridging strategic thinking with hands-on execution.
+            I enjoy getting my hands dirty, exploring how systems work under the hood, and learning by building, testing, and sometimes breaking things — because if you can break it, you can fix it.
+            Driven by a continuous learning mindset, I’m constantly expanding my skills across software development, AI, and digital products.
           </p>
           <details class="about__more">
             <summary>More about me &raquo;</summary>
             <div class="about__more-body">
               <p>
-                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-              <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum.
+                My Likes
+                <ul>
+                  <li>- Building things hands-on and understanding how they work behind the scenes</li>
+                  <li>- Continuous learning, experimentation, and solving complex problems</li>
+                  <li>- Clean design, efficient workflows, and technology with real-world impact</li>
+                </ul>
+                My Dislikes
+                <ul>
+                  <li>- Overcomplicated solutions for simple problems</li>
+                  <li>- Staying only at the theoretical level without practical execution</li>
+                  <li>- Passive mindsets and resistance to learning new things</li>
+                </ul>
               </p>
             </div>
           </details>
@@ -109,6 +125,20 @@
     <section id="projects" class="projects">
       <div class="container">
         <h2 class="section-label">// PROJECTS</h2>
+
+        <div class="search-bar">
+          <label for="project-search" class="search-bar__label">SEARCH_</label>
+          <input
+            type="search"
+            id="project-search"
+            class="search-bar__input"
+            placeholder="project name, tech, keyword…"
+            autocomplete="off"
+            spellcheck="false"
+            aria-controls="project-grid"
+            aria-label="Search projects"
+          >
+        </div>
 
         <input type="radio" name="filter" id="f-all" class="state-input" checked>
         <input type="radio" name="filter" id="f-web" class="state-input">
@@ -122,56 +152,55 @@
           <label for="f-other" class="filter-tab" role="tab" tabindex="0">OTHER</label>
         </div>
 
-        <ul class="project-grid">
-
+        <ul class="project-grid" id="project-grid">
+          <!-- Project 1 -->
           <li class="project-card" data-cat="web">
-            <a href="#" class="project-card__link">
+            <a href="projects/davies-burgers/index.html" class="project-card__link">
               <div class="project-card__thumb">
                 <img src="assets/img/project-01.svg" alt="" loading="lazy">
               </div>
               <div class="project-card__body">
                 <span class="project-card__tag">WEB</span>
-                <h3 class="project-card__title">PROJECT_ONE</h3>
+                <h3 class="project-card__title">DAVIS' BURGERS</h3>
                 <p class="project-card__desc">
-                  A lorem ipsum static-site generator that turns markdown into something actually readable.
+                  A Front End for a Website of a Burger restaurant.
                 </p>
                 <span class="project-card__cta">VIEW &rarr;</span>
               </div>
             </a>
           </li>
-
+          <!-- Project 2 -->
           <li class="project-card" data-cat="web">
-            <a href="#" class="project-card__link">
+            <a href="projects/healthy-recipes/index.html" class="project-card__link">
               <div class="project-card__thumb">
                 <img src="assets/img/project-02.svg" alt="" loading="lazy">
               </div>
               <div class="project-card__body">
                 <span class="project-card__tag">WEB</span>
-                <h3 class="project-card__title">PROJECT_TWO</h3>
+                <h3 class="project-card__title">HEALTHY RECIPES</h3>
                 <p class="project-card__desc">
-                  Consectetur adipiscing landing-page kit, mobile-first, no framework, no apologies.
+                  A Landing page for a Blog of healthy recipes.
                 </p>
                 <span class="project-card__cta">VIEW &rarr;</span>
               </div>
             </a>
           </li>
-
+          <!-- Project 3 -->
           <li class="project-card" data-cat="cli">
-            <a href="#" class="project-card__link">
+            <a href="projects/woodruff-portfolio/index.html" class="project-card__link">
               <div class="project-card__thumb">
                 <img src="assets/img/project-03.svg" alt="" loading="lazy">
               </div>
               <div class="project-card__body">
-                <span class="project-card__tag">CLI</span>
-                <h3 class="project-card__title">PROJECT_THREE</h3>
+                <span class="project-card__tag">WEB</span>
+                <h3 class="project-card__title">WOODRUFF PORTFOLIO</h3>
                 <p class="project-card__desc">
-                  Sed do eiusmod terminal tool that does one thing well and complains loudly when misused.
+                  The Webpage for a Personal portfolio.
                 </p>
                 <span class="project-card__cta">VIEW &rarr;</span>
               </div>
             </a>
           </li>
-
           <li class="project-card" data-cat="cli">
             <a href="#" class="project-card__link">
               <div class="project-card__thumb">
@@ -187,7 +216,6 @@
               </div>
             </a>
           </li>
-
           <li class="project-card" data-cat="other">
             <a href="#" class="project-card__link">
               <div class="project-card__thumb">
@@ -203,7 +231,6 @@
               </div>
             </a>
           </li>
-
           <li class="project-card" data-cat="other">
             <a href="#" class="project-card__link">
               <div class="project-card__thumb">
@@ -219,8 +246,19 @@
               </div>
             </a>
           </li>
-
         </ul>
+      </div>
+    </section>
+
+    <!-- GITHUB ============================================================ -->
+    <section id="github" class="github">
+      <div class="container">
+        <h2 class="section-label">// GITHUB</h2>
+        <p class="github-meta">
+          Latest public repos from
+          <a href="https://github.com/antoninolm" target="_blank" rel="me noopener">@antoninolm &rarr;</a>
+        </p>
+        <ul class="github-grid" id="github-grid" aria-label="GitHub repositories" aria-live="polite"></ul>
       </div>
     </section>
 
@@ -231,6 +269,7 @@
         <ul class="skill-grid">
           <li class="skill"><span class="skill__name">HTML5</span><span class="skill__level">CORE</span></li>
           <li class="skill"><span class="skill__name">CSS3</span><span class="skill__level">CORE</span></li>
+          <li class="skill"><span class="skill__name">JAVASCRIPT</span><span class="skill__level">CORE</span></li>
           <li class="skill"><span class="skill__name">ACCESSIBILITY</span><span class="skill__level">CORE</span></li>
           <li class="skill"><span class="skill__name">RESPONSIVE</span><span class="skill__level">CORE</span></li>
           <li class="skill"><span class="skill__name">DESIGN&nbsp;SYSTEMS</span><span class="skill__level">FLUENT</span></li>
@@ -247,7 +286,7 @@
           <summary>Frequently asked &raquo;</summary>
           <div class="faq__body">
             <details>
-              <summary>Why no JavaScript?</summary>
+              <summary>Why learning Web Dev now?</summary>
               <p>Because you can build a great deal with the platform itself, and what you don&rsquo;t ship can&rsquo;t break. This site is the proof.</p>
             </details>
             <details>
@@ -279,8 +318,8 @@
           </ul>
         </div>
 
-        <form class="contact-form" action="mailto:hello@example.com" method="post" enctype="text/plain" aria-label="Contact form">
-          <p class="contact-form__note">// FORM_NOTE: this opens your mail client &mdash; no JavaScript here.</p>
+        <form class="contact-form" action="mailto:hello@example.com" method="post" enctype="text/plain" novalidate aria-label="Contact form">
+          <p class="contact-form__note">// FORM_NOTE: validated before opening your mail client.</p>
 
           <label class="field">
             <span class="field__label">NAME</span>
@@ -316,5 +355,10 @@
     </div>
   </footer>
 
+  <script defer src="js/typing.js"></script>
+  <script defer src="js/scroll-progress.js"></script>
+  <script defer src="js/search.js"></script>
+  <script defer src="js/github.js"></script>
+  <script defer src="js/form.js"></script>
 </body>
 </html>

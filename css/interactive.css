@@ -1,0 +1,79 @@
+/* ============================================================
+   interactive.css — CSS-only state machines + JS-driven styles
+   ============================================================ */
+
+/* ---------- Screen-reader utility ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Typewriter cursor ---------- */
+.typewriter-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  background: var(--ink);
+  vertical-align: text-bottom;
+  margin-left: 3px;
+  animation: cursor-blink 0.9s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-cursor { animation: none; opacity: 1; }
+}
+
+/* ---------- Filter tabs ---------- */
+.filter-tabs {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border: var(--border);
+  background: var(--bg);
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--t-fast) var(--ease),
+              color var(--t-fast) var(--ease),
+              box-shadow var(--t-fast) var(--ease);
+}
+.filter-tab:hover { background: var(--bg-alt); box-shadow: var(--shadow-hard-sm); }
+
+#f-all:checked   ~ .filter-tabs label[for="f-all"],
+#f-web:checked   ~ .filter-tabs label[for="f-web"],
+#f-cli:checked   ~ .filter-tabs label[for="f-cli"],
+#f-other:checked ~ .filter-tabs label[for="f-other"] {
+  background: var(--ink);
+  color: var(--bg);
+  box-shadow: var(--shadow-hard-sm);
+}
+
+/* ---------- Scroll progress bar ---------- */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--progress, 0%);
+  height: 3px;
+  background: var(--accent);
+  z-index: 200;
+  pointer-events: none;
+}
