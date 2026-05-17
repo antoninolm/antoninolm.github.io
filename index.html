@@ -62,6 +62,10 @@
     <!-- HERO + ABOUT ====================================================== -->
     <section id="about" class="hero">
       <div class="container hero__grid">
+        <div class="hero__photo" role="img" aria-label="Profile photo placeholder">
+          <img src="./projects/imgs/pic-pixar-style.png" alt="" loading="lazy">
+        </div>
+
         <div class="hero__copy">
           <p class="hero__eyebrow">// PORTFOLIO_v1.0</p>
           <h1 class="hero__title">
@@ -78,9 +82,9 @@
             <a class="btn btn--ghost" href="#contact">GET IN TOUCH</a>
           </div>
         </div>
-
+      </div>
+      <div class="container">
         <aside class="hero__card" aria-label="At a glance">
-          <br>
           <h2 class="hero__card-title">// AT_A_GLANCE</h2>
           <dl class="hero__card-list">
             <dt>BASED IN</dt><dd>Earth, mostly</dd>
@@ -158,7 +162,7 @@
           <li class="project-card" data-cat="web">
             <a href="projects/davies-burgers/index.html" class="project-card__link">
               <div class="project-card__thumb">
-                <!-- <img src="assets/img/project-01.svg" alt="" loading="lazy"> -->
+                <img src="./projects/imgs/davies-burgers.jpeg" alt="" loading="lazy">
               </div>
               <div class="project-card__body">
                 <span class="project-card__tag">WEB</span>
@@ -174,7 +178,7 @@
           <li class="project-card" data-cat="web">
             <a href="projects/healthy-recipes/index.html" class="project-card__link">
               <div class="project-card__thumb">
-                <!-- <img src="assets/img/project-02.svg" alt="" loading="lazy"> -->
+                <img src="./projects/imgs/healthy-recipes.jpeg" alt="" loading="lazy">
               </div>
               <div class="project-card__body">
                 <span class="project-card__tag">WEB</span>
@@ -190,7 +194,7 @@
           <li class="project-card" data-cat="cli">
             <a href="projects/woodruff-portfolio/index.html" class="project-card__link">
               <div class="project-card__thumb">
-                <!-- <img src="assets/img/project-03.svg" alt="" loading="lazy"> -->
+                <img src="./projects/imgs/woodruff-portfolio.jpeg" alt="" loading="lazy">
               </div>
               <div class="project-card__body">
                 <span class="project-card__tag">WEB</span>
@@ -203,16 +207,32 @@
             </a>
           </li>
           <!-- Project 4 -->
-          <li class="project-card" data-cat="cli">
-            <a href="#" class="project-card__link">
+          <li class="project-card" data-cat="web">
+            <a href="projects/weather-dashboard/index.html" class="project-card__link">
               <div class="project-card__thumb">
-                <!-- <img src="assets/img/project-04.svg" alt="" loading="lazy"> -->
+                <img src="./projects/imgs/weather-dashboard.jpeg" alt="" loading="lazy">
               </div>
               <div class="project-card__body">
-                <span class="project-card__tag">CLI</span>
-                <h3 class="project-card__title">PROJECT_FOUR</h3>
+                <span class="project-card__tag">WEB</span>
+                <h3 class="project-card__title">WEATHER DASHBOARD</h3>
                 <p class="project-card__desc">
-                  Tempor incididunt git plugin that makes branch management slightly less of a tragedy.
+                  Real-time weather data using the OpenWeatherMap API — current conditions and 5-day forecast.
+                </p>
+                <span class="project-card__cta">VIEW &rarr;</span>
+              </div>
+            </a>
+          </li>
+          <!-- Project 5 -->
+          <li class="project-card" data-cat="web">
+            <a href="projects/calorie-counter/index.html" class="project-card__link">
+              <div class="project-card__thumb">
+                <img src="./projects/imgs/calories-counter.jpeg" alt="" loading="lazy">
+              </div>
+              <div class="project-card__body">
+                <span class="project-card__tag">WEB</span>
+                <h3 class="project-card__title">CALORIE COUNTER</h3>
+                <p class="project-card__desc">
+                  Meal nutrition lookup using the API Ninjas Nutrition API — calories, protein, carbs, and fat per ingredient.
                 </p>
                 <span class="project-card__cta">VIEW &rarr;</span>
               </div>

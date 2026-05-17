@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calorie Counter — look up meal nutrition using the API Ninjas API">
+  <title>Calorie Counter // ALM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="site-header">
+      <a class="brand" href="../../index.html"><span>[</span>ALM<span>]</span></a>
+      <a class="back-link" href="../../index.html">&larr; BACK TO PORTFOLIO</a>
+    </header>
+
+    <main>
+      <h1>// CALORIE_COUNTER</h1>
+      <p class="subtitle">Type a meal and get its calorie &amp; nutrition breakdown via API Ninjas</p>
+
+      <div class="input-row">
+        <input
+          type="text"
+          id="meal-input"
+          placeholder="e.g. 2 eggs and toast with butter"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Meal description"
+        >
+        <button class="btn" id="calc-btn">CALCULATE &rarr;</button>
+        <button class="btn btn--ghost" id="clear-btn">CLEAR</button>
+      </div>
+
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+
+      <section id="results" class="results-panel" hidden aria-label="Nutrition results">
+        <p class="results-panel__header">// NUTRITION BREAKDOWN</p>
+
+        <ul class="item-list" id="item-list"></ul>
+
+        <div class="total-row">
+          <span class="total-row__label">// TOTAL CALORIES</span>
+          <span class="total-calories" id="total-calories"></span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Data by <a href="https://api-ninjas.com/" target="_blank" rel="noopener">API Ninjas</a> &mdash; free tier Nutrition API</p>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
