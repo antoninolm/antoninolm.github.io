@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Deck of Cards — Object-Oriented JavaScript demo: Card, Deck, and Hand classes with an interactive demo.">
+  <title>Deck of Cards // ALM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="../../index.html"><span>[</span>ALM<span>]</span></a>
+    <a class="back-link" href="../../index.html">&larr; BACK TO PORTFOLIO</a>
+  </header>
+
+  <div class="container">
+    <main>
+
+      <div class="hero">
+        <h1><span>//</span> DECK_OF_CARDS</h1>
+        <p>Object-Oriented JavaScript &mdash; Card &middot; Deck &middot; Hand</p>
+      </div>
+
+      <!-- Class diagram -->
+      <section class="class-diagram" aria-label="Class architecture">
+        <div class="section-label">Class Architecture</div>
+        <div class="class-grid">
+
+          <div class="class-block">
+            <div class="class-block__header">
+              <span class="kw">class</span> Card
+            </div>
+            <div class="class-block__body">
+              <div class="class-block__section">Properties</div>
+              <div class="class-block__row"><span class="prop">suit</span> <span class="type">♠ ♥ ♦ ♣</span></div>
+              <div class="class-block__row"><span class="prop">value</span> <span class="type">A 2–10 J Q K</span></div>
+              <div class="class-block__row"><span class="prop">faceUp</span> <span class="type">boolean</span></div>
+              <div class="class-block__section">Methods</div>
+              <div class="class-block__row"><span class="method">.flip()</span> <span class="type">→ Card</span></div>
+              <div class="class-block__row"><span class="method">.color()</span> <span class="type">→ string</span></div>
+              <div class="class-block__row"><span class="method">.toString()</span> <span class="type">→ string</span></div>
+            </div>
+          </div>
+
+          <div class="class-block">
+            <div class="class-block__header">
+              <span class="kw">class</span> Deck
+            </div>
+            <div class="class-block__body">
+              <div class="class-block__section">Properties</div>
+              <div class="class-block__row"><span class="prop">cards</span> <span class="type">Card[]</span></div>
+              <div class="class-block__section">Methods</div>
+              <div class="class-block__row"><span class="method">.shuffle()</span> <span class="type">Fisher-Yates</span></div>
+              <div class="class-block__row"><span class="method">.draw()</span> <span class="type">→ Card</span></div>
+              <div class="class-block__row"><span class="method">.deal(n)</span> <span class="type">→ Card[]</span></div>
+              <div class="class-block__row"><span class="method">.reset()</span> <span class="type">→ Deck</span></div>
+              <div class="class-block__section">Getters</div>
+              <div class="class-block__row"><span class="getter">.remaining</span> <span class="type">→ number</span></div>
+            </div>
+          </div>
+
+          <div class="class-block">
+            <div class="class-block__header">
+              <span class="kw">class</span> Hand
+            </div>
+            <div class="class-block__body">
+              <div class="class-block__section">Properties</div>
+              <div class="class-block__row"><span class="prop">cards</span> <span class="type">Card[]</span></div>
+              <div class="class-block__section">Methods</div>
+              <div class="class-block__row"><span class="method">.add(card)</span> <span class="type">→ Hand</span></div>
+              <div class="class-block__row"><span class="method">.clear()</span> <span class="type">→ Hand</span></div>
+              <div class="class-block__section">Getters</div>
+              <div class="class-block__row"><span class="getter">.count</span> <span class="type">→ number</span></div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Interactive demo -->
+      <section class="demo" aria-label="Interactive demo">
+        <div class="section-label">Interactive Demo</div>
+
+        <div class="controls">
+          <button class="btn" id="btn-shuffle">Shuffle</button>
+          <button class="btn" id="btn-draw">Draw</button>
+          <button class="btn" id="btn-deal">Deal &times;5</button>
+          <button class="btn" id="btn-reset">Reset</button>
+        </div>
+
+        <div class="demo-panels">
+
+          <div class="deck-pile-wrap">
+            <div class="panel-label">
+              DECK &mdash; <span class="count" id="deck-count">52</span> cards
+            </div>
+            <div class="deck-pile" id="deck-pile" aria-label="Deck pile">
+              <div class="deck-pile__top" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <div class="hand-wrap">
+            <div class="panel-label">
+              HAND &mdash; <span class="count" id="hand-count">0</span> cards
+            </div>
+            <div class="hand" id="hand-area" role="list" aria-label="Cards in hand">
+              <span class="hand-empty">No cards drawn yet.</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <span>&copy; 2025 Antonino La Manna</span>
+    <a href="../../index.html">Portfolio</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
