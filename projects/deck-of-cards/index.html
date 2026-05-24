@@ -17,6 +17,9 @@
   <div class="container">
     <main>
 
+      <input type="radio" name="view" id="view-demo" class="state-input" checked>
+      <input type="radio" name="view" id="view-poker" class="state-input">
+
       <div class="hero">
         <h1><span>//</span> DECK_OF_CARDS</h1>
         <p>Object-Oriented JavaScript &mdash; Card &middot; Deck &middot; Hand</p>
@@ -78,9 +81,17 @@
         </div>
       </section>
 
-      <!-- Interactive demo -->
-      <section class="demo" aria-label="Interactive demo">
+      <!-- Tab header -->
+      <div class="demo-header">
         <div class="section-label">Interactive Demo</div>
+        <div class="view-tabs">
+          <label for="view-demo">DEMO</label>
+          <label for="view-poker">POKER</label>
+        </div>
+      </div>
+
+      <!-- Interactive demo panel -->
+      <section class="demo" id="panel-demo" aria-label="Interactive demo">
 
         <div class="controls">
           <button class="btn" id="btn-shuffle">Shuffle</button>
@@ -112,6 +123,39 @@
         </div>
       </section>
 
+      <!-- Poker panel -->
+      <section class="poker-section" id="panel-poker" aria-label="Poker vs CPU">
+
+        <div class="poker-cpu">
+          <span class="poker-chips">CPU &mdash; $<span id="cpu-chips">1000</span></span>
+          <div class="poker-hand" id="cpu-hand"></div>
+        </div>
+
+        <div class="poker-board">
+          <div class="poker-community" id="community-cards"></div>
+          <div class="poker-pot">POT &mdash; $<span id="pot">0</span></div>
+        </div>
+
+        <div class="poker-player">
+          <div class="poker-hand" id="player-hand"></div>
+          <span class="poker-chips">YOU &mdash; $<span id="player-chips">1000</span></span>
+        </div>
+
+        <div class="poker-status" id="poker-status"></div>
+
+        <div class="poker-actions">
+          <button class="btn" id="btn-start-hand">DEAL HAND</button>
+          <button class="btn" id="btn-fold" style="display:none">FOLD</button>
+          <button class="btn" id="btn-check-call" style="display:none">CHECK</button>
+          <div class="raise-group" id="raise-group" style="display:none">
+            <input type="number" id="raise-amount" class="raise-input" min="40" step="20" value="40">
+            <button class="btn" id="btn-raise">RAISE</button>
+          </div>
+          <button class="btn" id="btn-new-game" style="display:none">NEW GAME</button>
+        </div>
+
+      </section>
+
     </main>
   </div>
 
@@ -121,5 +165,6 @@
   </footer>
 
   <script src="app.js"></script>
+  <script src="poker.js"></script>
 </body>
 </html>
