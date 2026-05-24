@@ -17,9 +17,6 @@
   <div class="container">
     <main>
 
-      <input type="radio" name="view" id="view-demo" class="state-input" checked>
-      <input type="radio" name="view" id="view-poker" class="state-input">
-
       <div class="hero">
         <h1><span>//</span> DECK_OF_CARDS</h1>
         <p>Object-Oriented JavaScript &mdash; Card &middot; Deck &middot; Hand</p>
@@ -85,13 +82,13 @@
       <div class="demo-header">
         <div class="section-label">Interactive Demo</div>
         <div class="view-tabs">
-          <label for="view-demo">DEMO</label>
-          <label for="view-poker">POKER</label>
+          <button class="tab-btn tab-btn--active" data-tab="panel-demo">DEMO</button>
+          <button class="tab-btn" data-tab="panel-poker">POKER</button>
         </div>
       </div>
 
       <!-- Interactive demo panel -->
-      <section class="demo" id="panel-demo" aria-label="Interactive demo">
+      <section class="demo tab-panel tab-panel--active" id="panel-demo" aria-label="Interactive demo">
 
         <div class="controls">
           <button class="btn" id="btn-shuffle">Shuffle</button>
@@ -124,7 +121,7 @@
       </section>
 
       <!-- Poker panel -->
-      <section class="poker-section" id="panel-poker" aria-label="Poker vs CPU">
+      <section class="poker-section tab-panel" id="panel-poker" aria-label="Poker vs CPU">
 
         <div class="poker-cpu">
           <span class="poker-chips">CPU &mdash; $<span id="cpu-chips">1000</span></span>

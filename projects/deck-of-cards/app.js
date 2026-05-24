@@ -160,3 +160,13 @@ btnReset.addEventListener('click', () => {
 
 updateDeckUI();
 updateHandUI();
+
+// ── Tab switching ─────────────────────────────────────────────────────────────
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('tab-btn--active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('tab-panel--active'));
+    btn.classList.add('tab-btn--active');
+    document.getElementById(btn.dataset.tab).classList.add('tab-panel--active');
+  });
+});

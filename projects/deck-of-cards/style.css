@@ -383,16 +383,9 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 
 /* --- Tab toggle --- */
 
-.state-input { position: absolute; opacity: 0; pointer-events: none; }
+.tab-panel         { display: none; }
+.tab-panel--active { display: block; }
 
-/* Default: poker panel hidden */
-.poker-section { display: none; }
-
-/* When poker tab is active */
-#view-poker:checked ~ #panel-demo    { display: none; }
-#view-poker:checked ~ .poker-section { display: block; }
-
-/* Demo header row */
 .demo-header {
   display: flex;
   align-items: center;
@@ -401,10 +394,9 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 }
 .demo-header .section-label { margin-bottom: 0; }
 
-/* Tab labels */
 .view-tabs { display: flex; }
 
-.view-tabs label {
+.tab-btn {
   font-family: var(--font);
   font-size: 0.75rem;
   font-weight: 700;
@@ -412,16 +404,15 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
   text-transform: uppercase;
   cursor: pointer;
   border: var(--border);
-  padding: 0.3rem 0.75rem;
+  background: var(--bg);
   color: var(--muted);
+  padding: 0.3rem 0.75rem;
   transition: color 120ms, border-color 120ms, background 120ms;
 }
-.view-tabs label:first-child { border-right: none; }
-.view-tabs label:hover { color: var(--ink); }
+.tab-btn:first-child { border-right: none; }
+.tab-btn:hover { color: var(--ink); }
 
-/* Active tab label */
-#view-demo:checked  ~ .demo-header label[for="view-demo"],
-#view-poker:checked ~ .demo-header label[for="view-poker"] {
+.tab-btn--active {
   color: var(--accent);
   border-color: var(--accent);
   background: rgba(255, 58, 0, 0.08);
