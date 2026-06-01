@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lira — Welfare aziendale</title>
+<style>
+  :root {
+    /* Warm institutional palette */
+    --bg:        #F4F2EB;   /* warm off-white */
+    --surface:   #FFFFFF;
+    --sage:      #5C6E52;   /* deep sage green */
+    --sage-700:  #4A5A42;
+    --sage-soft: #E7EBE0;   /* pale sage tint */
+    --sage-line: #D6DCCB;
+    --gold:      #B89248;   /* institutional gold */
+    --gold-soft: #F0E4C7;
+    --ink:       #2A2B26;
+    --muted:     #76776C;
+    --faint:     #9A9B90;
+    --radius:    18px;
+    --shadow:    0 1px 2px rgba(42,43,38,.04), 0 10px 30px rgba(42,43,38,.06);
+    --shadow-sm: 0 1px 2px rgba(42,43,38,.05), 0 4px 14px rgba(42,43,38,.05);
+    --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --serif: Georgia, "Times New Roman", serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { height: 100%; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.45;
+  }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Header ---------- */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(244, 242, 235, .82);
+    backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid var(--sage-line);
+  }
+  .site-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    height: 72px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand .coin {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--sage);
+    display: grid; place-items: center;
+    color: var(--gold-soft);
+    font-family: var(--serif);
+    font-size: 18px; font-weight: 700;
+    box-shadow: inset 0 0 0 2px rgba(184,146,72,.5);
+  }
+  .brand .name {
+    font-family: var(--serif);
+    font-size: 26px;
+    letter-spacing: .3px;
+    color: var(--ink);
+  }
+  .brand .name b { color: var(--sage); font-weight: 700; }
+
+  .user { display: flex; align-items: center; gap: 12px; }
+  .user .meta { text-align: right; line-height: 1.2; }
+  .user .meta .n { font-size: 14px; font-weight: 600; }
+  .user .meta .r { font-size: 12px; color: var(--muted); }
+  .user .avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--sage-soft);
+    color: var(--sage-700);
+    display: grid; place-items: center;
+    font-size: 14px; font-weight: 700;
+    border: 1px solid var(--sage-line);
+  }
+
+  /* ---------- Layout ---------- */
+  main { padding: 32px 0 72px; }
+
+  /* ---------- Credit tile ---------- */
+  .credit {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-700) 100%);
+    color: #F4F2EB;
+    border-radius: 24px;
+    padding: 34px 38px;
+    box-shadow: var(--shadow);
+  }
+  .credit .deco {
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 240px; height: 240px; border-radius: 50%;
+    border: 2px solid rgba(240,228,199,.18);
+  }
+  .credit .deco.two {
+    right: 30px; top: 60px;
+    width: 150px; height: 150px;
+    border-color: rgba(240,228,199,.12);
+  }
+  .credit .head {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; letter-spacing: .12em; text-transform: uppercase;
+    color: rgba(240,228,199,.85);
+    margin-bottom: 14px;
+  }
+  .credit .head .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+  .credit .amount {
+    font-family: var(--serif);
+    font-size: clamp(44px, 8vw, 64px);
+    line-height: 1;
+    letter-spacing: -.5px;
+  }
+  .credit .amount span { font-size: .5em; color: rgba(244,242,235,.7); margin-left: 6px; font-family: var(--sans); }
+  .credit .sub { margin-top: 8px; color: rgba(244,242,235,.78); font-size: 15px; }
+
+  .bar-block { margin-top: 26px; position: relative; }
+  .bar-labels {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 13px; color: rgba(244,242,235,.82); margin-bottom: 9px;
+  }
+  .bar-labels b { color: #fff; font-weight: 600; }
+  .bar {
+    height: 12px; border-radius: 99px;
+    background: rgba(244,242,235,.18);
+    overflow: hidden;
+  }
+  .bar .fill {
+    height: 100%;
+    width: 0;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--gold) 0%, #D7B463 100%);
+    transition: width 1.1s cubic-bezier(.22,.61,.36,1);
+  }
+
+  /* ---------- Section heading ---------- */
+  .sec-head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 16px; margin: 44px 0 18px;
+  }
+  .sec-head h2 {
+    font-family: var(--serif);
+    font-size: 24px; font-weight: 700; color: var(--ink);
+  }
+  .sec-head p { font-size: 14px; color: var(--muted); margin-top: 2px; }
+  .sec-head .count { font-size: 13px; color: var(--faint); white-space: nowrap; }
+
+  /* ---------- Filters ---------- */
+  .filters {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-bottom: 24px;
+  }
+  .pill {
+    appearance: none; border: 1px solid var(--sage-line);
+    background: var(--surface);
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 14px; font-weight: 500;
+    padding: 9px 18px; border-radius: 99px;
+    cursor: pointer;
+    transition: all .18s ease;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .pill:hover { border-color: var(--sage); color: var(--sage-700); }
+  .pill[aria-pressed="true"] {
+    background: var(--sage);
+    border-color: var(--sage);
+    color: #F4F2EB;
+  }
+  .pill .num {
+    font-size: 12px;
+    color: var(--faint);
+  }
+  .pill[aria-pressed="true"] .num { color: rgba(244,242,235,.7); }
+
+  /* ---------- Vendor grid ---------- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(252px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--sage-line);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    display: flex; flex-direction: column;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 4px rgba(42,43,38,.06), 0 16px 36px rgba(42,43,38,.1);
+    border-color: var(--sage);
+  }
+  .card .icon {
+    width: 48px; height: 48px; border-radius: 14px;
+    background: var(--sage-soft);
+    display: grid; place-items: center;
+    margin-bottom: 16px;
+  }
+  .card .icon svg { width: 24px; height: 24px; stroke: var(--sage-700); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .card h3 { font-size: 17px; font-weight: 600; margin-bottom: 5px; }
+  .card .desc { font-size: 13.5px; color: var(--muted); line-height: 1.5; flex: 1; text-wrap: pretty; }
+  .card .foot {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 16px; padding-top: 14px;
+    border-top: 1px solid var(--sage-soft);
+  }
+  .card .tag {
+    font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--sage-700); font-weight: 600;
+    background: var(--sage-soft);
+    padding: 4px 10px; border-radius: 99px;
+  }
+  .card .go {
+    font-size: 13px; color: var(--gold); font-weight: 600;
+    display: inline-flex; align-items: center; gap: 4px;
+    opacity: 0; transform: translateX(-4px);
+    transition: all .2s ease;
+  }
+  .card:hover .go { opacity: 1; transform: translateX(0); }
+
+  .fav {
+    position: absolute; top: 16px; right: 16px;
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 11px; font-weight: 600; letter-spacing: .03em;
+    color: var(--gold);
+    background: var(--gold-soft);
+    border: 1px solid rgba(184,146,72,.3);
+    padding: 4px 9px 4px 7px; border-radius: 99px;
+  }
+  .fav svg { width: 12px; height: 12px; fill: var(--gold); stroke: none; }
+
+  .empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--faint);
+    padding: 50px 0;
+    font-size: 15px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    .brand .name { font-size: 22px; }
+    .user .meta { display: none; }
+    .credit { padding: 26px 22px; border-radius: 20px; }
+    .sec-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="site">
+    <div class="wrap site-inner">
+      <div class="brand">
+        <div class="coin">L</div>
+        <div class="name"><b>Lira</b></div>
+      </div>
+      <div class="user">
+        <div class="meta">
+          <div class="n">Giulia Bianchi</div>
+          <div class="r">Dipendente · Acme S.p.A.</div>
+        </div>
+        <div class="avatar">GB</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- Credit tile -->
+    <section class="credit" aria-label="Credito welfare">
+      <div class="deco"></div>
+      <div class="deco two"></div>
+      <div class="head"><span class="dot"></span> Credito welfare disponibile</div>
+      <div class="amount">€100,00 <span>residui</span></div>
+      <div class="sub">Anno 2026 · valido fino al 31 dicembre</div>
+
+      <div class="bar-block">
+        <div class="bar-labels">
+          <span><b id="spent">€400,00</b> utilizzati</span>
+          <span>su <b id="total">€500,00</b> annui</span>
+        </div>
+        <div class="bar"><div class="fill" id="fill"></div></div>
+      </div>
+    </section>
+
+    <!-- Vendors -->
+    <div class="sec-head">
+      <div>
+        <h2>Dove spendere il credito</h2>
+        <p>Esercenti convenzionati con il piano welfare di Acme</p>
+      </div>
+      <div class="count" id="count"></div>
+    </div>
+
+    <div class="filters" id="filters" role="group" aria-label="Filtra per categoria"></div>
+
+    <div class="grid" id="grid"></div>
+
+  </main>
+
+<script>
+  /* ---------- Icons (simple line set) ---------- */
+  const ICONS = {
+    shopping:  '<path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/>',
+    cart:      '<circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/><path d="M3 4h2l2.5 12h11l1.8-8H7"/>',
+    wrench:    '<path d="M15 4a4 4 0 0 0-1.5 7.7L5 20l-1 1 1 1 1-1 8.3-8.5A4 4 0 1 0 15 4Z"/>',
+    shirt:     '<path d="M8 4 4 7l2 3 2-1v9h8v-9l2 1 2-3-4-3-2 2a2 2 0 0 1-4 0L8 4Z"/>',
+    dumbbell:  '<path d="M4 9v6M7 7v10M17 7v10M20 9v6M7 12h10"/>',
+    cross:     '<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/>',
+    cutlery:   '<path d="M7 3v8a2 2 0 0 0 2 2v8M9 3v6M5 3v6M17 3c-1.5 0-2.5 2-2.5 5s1 4 2.5 4v8"/>',
+    book:      '<path d="M5 4h11a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2V4Z"/><path d="M18 16H7a2 2 0 0 0-2 2"/>',
+    glasses:   '<circle cx="6.5" cy="14" r="3"/><circle cx="17.5" cy="14" r="3"/><path d="M9.5 13.5c.8-1 4.2-1 5 0M3.5 11l2-4M20.5 11l-2-4"/>',
+    device:    '<rect x="3" y="5" width="18" height="11" rx="2"/><path d="M8 20h8M12 16v4"/>',
+    star:      '<path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5L12 3Z"/>'
+  };
+
+  /* ---------- Mock data ---------- */
+  const VENDORS = [
+    { name: "Marketplace Online",  cat: "Shopping",   icon: "shopping", fav: true,  desc: "Acquisti online: elettronica, casa e tempo libero con il tuo credito." },
+    { name: "Supermercato Verde",  cat: "Alimentare", icon: "cart",     fav: true,  desc: "Spesa quotidiana e buoni alimentari nei punti vendita convenzionati." },
+    { name: "Officina Rossi",      cat: "Servizi",    icon: "wrench",   fav: false, desc: "Tagliando, gomme e manutenzione auto con sconti dedicati." },
+    { name: "Atelier Moda",        cat: "Shopping",   icon: "shirt",    fav: false, desc: "Abbigliamento e accessori per tutta la famiglia." },
+    { name: "FitClub Palestra",    cat: "Sport",      icon: "dumbbell", fav: true,  desc: "Abbonamenti mensili, corsi e personal trainer." },
+    { name: "Farmacia Centrale",   cat: "Salute",     icon: "cross",    fav: false, desc: "Farmaci, parafarmacia e check-up convenzionati." },
+    { name: "Trattoria Aurora",    cat: "Alimentare", icon: "cutlery",  fav: false, desc: "Pranzi e cene presso ristoranti aderenti al circuito." },
+    { name: "Libreria Pagina 12",  cat: "Shopping",   icon: "book",     fav: false, desc: "Libri, manuali e materiale per la formazione personale." },
+    { name: "Ottica Lucenti",      cat: "Salute",     icon: "glasses",  fav: true,  desc: "Occhiali da vista, lenti a contatto e visite optometriche." },
+    { name: "TechPoint Elettronica", cat: "Shopping", icon: "device",  fav: false, desc: "Smartphone, computer e piccoli elettrodomestici." }
+  ];
+
+  const CATEGORIES = ["Tutti", "Salute", "Sport", "Alimentare", "Servizi", "Shopping"];
+
+  /* ---------- State ---------- */
+  let activeCat = "Tutti";
+
+  /* ---------- Render filters ---------- */
+  const filtersEl = document.getElementById('filters');
+  function countFor(cat){
+    return cat === "Tutti" ? VENDORS.length : VENDORS.filter(v => v.cat === cat).length;
+  }
+  CATEGORIES.forEach(cat => {
+    const b = document.createElement('button');
+    b.className = 'pill';
+    b.type = 'button';
+    b.setAttribute('aria-pressed', cat === activeCat);
+    b.dataset.cat = cat;
+    b.innerHTML = cat + ' <span class="num">' + countFor(cat) + '</span>';
+    b.addEventListener('click', () => {
+      activeCat = cat;
+      document.querySelectorAll('.pill').forEach(p =>
+        p.setAttribute('aria-pressed', p.dataset.cat === activeCat));
+      renderGrid();
+    });
+    filtersEl.appendChild(b);
+  });
+
+  /* ---------- Render grid ---------- */
+  const gridEl = document.getElementById('grid');
+  const countEl = document.getElementById('count');
+
+  function svgIcon(name){ return '<svg viewBox="0 0 24 24">' + ICONS[name] + '</svg>'; }
+
+  function renderGrid(){
+    const list = activeCat === "Tutti"
+      ? VENDORS
+      : VENDORS.filter(v => v.cat === activeCat);
+
+    countEl.textContent = list.length + (list.length === 1 ? ' esercente' : ' esercenti');
+
+    gridEl.innerHTML = '';
+    if (!list.length){
+      gridEl.innerHTML = '<div class="empty">Nessun esercente in questa categoria.</div>';
+      return;
+    }
+    list.forEach((v, i) => {
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.style.animation = 'none';
+      card.innerHTML =
+        (v.fav ? '<span class="fav"><svg viewBox="0 0 24 24">'+ICONS.star+'</svg>Preferito</span>' : '') +
+        '<div class="icon">' + svgIcon(v.icon) + '</div>' +
+        '<h3>' + v.name + '</h3>' +
+        '<p class="desc">' + v.desc + '</p>' +
+        '<div class="foot">' +
+          '<span class="tag">' + v.cat + '</span>' +
+          '<span class="go">Usa credito →</span>' +
+        '</div>';
+      gridEl.appendChild(card);
+    });
+  }
+
+  /* ---------- Credit bar ---------- */
+  function initCredit(){
+    const total = 500, spent = 400;
+    requestAnimationFrame(() => {
+      document.getElementById('fill').style.width = (spent / total * 100) + '%';
+    });
+  }
+
+  renderGrid();
+  initCredit();
+</script>
+</body>
+</html>
