@@ -1,0 +1,92 @@
+<h2>How smart should the CPU opponent be?</h2>
+<p class="subtitle">AI sophistication affects how fun and believable the game feels — and how much logic we need to build.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="random" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#111;padding:14px;font-family:monospace;">
+      <div style="font-size:10px;color:#888;margin-bottom:8px;text-align:center;">CPU DECISION</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:#333;border:1px solid #555;flex-shrink:0;"></div>
+          <div style="font-size:10px;color:#555;">hand strength → ignored</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:#333;border:1px solid #555;flex-shrink:0;"></div>
+          <div style="font-size:10px;color:#555;">pot odds → ignored</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="width:8px;height:8px;border-radius:50%;background:#ff3a00;border:1px solid #ff3a00;flex-shrink:0;"></div>
+          <div style="font-size:10px;color:#f4f1ea;">random action → <span style="color:#ff3a00;">RAISE</span></div>
+        </div>
+      </div>
+      <div style="margin-top:10px;border:1px dashed #333;padding:6px;font-size:9px;color:#555;text-align:center;">
+        Math.random() decides call / raise / fold
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Purely Random</h3>
+      <p>CPU picks call/raise/fold by random chance each action. No awareness of hand strength. Easy to beat — more of a demo than a challenge.</p>
+      <p style="color:#aaa;font-size:12px;margin-top:6px;">✓ Trivial to implement</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="basic" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#111;padding:14px;font-family:monospace;">
+      <div style="font-size:10px;color:#888;margin-bottom:8px;text-align:center;">CPU DECISION TREE</div>
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="font-size:10px;color:#888;width:80px;flex-shrink:0;">pair or better</div>
+          <div style="font-size:9px;color:#ff3a00;">→ raise / call</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="font-size:10px;color:#888;width:80px;flex-shrink:0;">high card only</div>
+          <div style="font-size:9px;color:#f4f1ea;">→ check / fold</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="font-size:10px;color:#888;width:80px;flex-shrink:0;">flush / straight draw</div>
+          <div style="font-size:9px;color:#f4f1ea;">→ call (chase)</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="font-size:10px;color:#888;width:80px;flex-shrink:0;">+ bluff chance</div>
+          <div style="font-size:9px;color:#555;">→ 15% random raise</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Basic Strategy</h3>
+      <p>CPU evaluates its hand strength and acts accordingly — bets strong hands, folds weak ones, occasionally bluffs. Feels like a real (beginner) player.</p>
+      <p style="color:#ff3a00;font-size:12px;margin-top:6px;">★ Recommended — good balance of fun and buildability</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="advanced" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#111;padding:14px;font-family:monospace;">
+      <div style="font-size:10px;color:#888;margin-bottom:8px;text-align:center;">CPU READS THE TABLE</div>
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="font-size:10px;color:#888;width:80px;flex-shrink:0;">hand strength</div>
+          <div style="font-size:9px;color:#f4f1ea;">→ evaluated</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="font-size:10px;color:#888;width:80px;flex-shrink:0;">pot odds</div>
+          <div style="font-size:9px;color:#f4f1ea;">→ calculated</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="font-size:10px;color:#888;width:80px;flex-shrink:0;">your bet patterns</div>
+          <div style="font-size:9px;color:#f4f1ea;">→ tracked</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="font-size:10px;color:#888;width:80px;flex-shrink:0;">board texture</div>
+          <div style="font-size:9px;color:#f4f1ea;">→ considered</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Advanced (Pot Odds + Reads)</h3>
+      <p>CPU computes pot odds, tracks your betting patterns, adjusts aggression. Genuinely challenging to beat — plays closer to a competent human.</p>
+      <p style="color:#aaa;font-size:12px;margin-top:6px;">⚡ Significant logic — risk of over-engineering</p>
+    </div>
+  </div>
+
+</div>

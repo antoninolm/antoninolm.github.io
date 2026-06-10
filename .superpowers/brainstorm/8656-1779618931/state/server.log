@@ -1,0 +1,9 @@
+{"type":"server-started","port":51846,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:51846","screen_dir":"/home/alamanna1/code/antoninolm/antoninolm.github.io/.superpowers/brainstorm/8656-1779618931/content","state_dir":"/home/alamanna1/code/antoninolm/antoninolm.github.io/.superpowers/brainstorm/8656-1779618931/state"}
+{"type":"screen-added","file":"/home/alamanna1/code/antoninolm/antoninolm.github.io/.superpowers/brainstorm/8656-1779618931/content/poker-variant.html"}
+{"type":"screen-added","file":"/home/alamanna1/code/antoninolm/antoninolm.github.io/.superpowers/brainstorm/8656-1779618931/content/betting-system.html"}
+{"type":"screen-added","file":"/home/alamanna1/code/antoninolm/antoninolm.github.io/.superpowers/brainstorm/8656-1779618931/content/cpu-ai.html"}
+{"type":"screen-added","file":"/home/alamanna1/code/antoninolm/antoninolm.github.io/.superpowers/brainstorm/8656-1779618931/content/page-layout.html"}
+{"type":"screen-added","file":"/home/alamanna1/code/antoninolm/antoninolm.github.io/.superpowers/brainstorm/8656-1779618931/content/waiting-1.html"}
+{"type":"screen-added","file":"/home/alamanna1/code/antoninolm/antoninolm.github.io/.superpowers/brainstorm/8656-1779618931/content/architecture.html"}
+{"type":"screen-added","file":"/home/alamanna1/code/antoninolm/antoninolm.github.io/.superpowers/brainstorm/8656-1779618931/content/waiting-2.html"}
+{"type":"server-stopped","reason":"idle timeout"}

@@ -1,0 +1,91 @@
+<h2>Architecture Overview</h2>
+<p class="subtitle">How the pieces connect — existing code in grey, new code in orange.</p>
+
+<div class="mockup">
+  <div class="mockup-header">System Diagram</div>
+  <div class="mockup-body" style="font-family:monospace;font-size:11px;padding:20px;">
+
+    <div style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+
+      <!-- Left: Files -->
+      <div style="flex:1;min-width:200px;">
+        <div style="color:#888;font-size:10px;margin-bottom:8px;text-transform:uppercase;">Files</div>
+
+        <div style="border:1px solid #444;background:#1a1a1a;padding:8px;margin-bottom:8px;border-radius:2px;">
+          <div style="color:#888;font-size:10px;">index.html</div>
+          <div style="color:#555;font-size:9px;margin-top:4px;">+ radio tab toggle (DEMO / POKER)<br>+ poker game markup</div>
+        </div>
+
+        <div style="border:1px solid #444;background:#1a1a1a;padding:8px;margin-bottom:8px;border-radius:2px;">
+          <div style="color:#888;font-size:10px;">app.js <span style="color:#555;">(existing, unchanged)</span></div>
+          <div style="color:#555;font-size:9px;margin-top:4px;">Card · Deck · Hand classes<br>Demo UI (shuffle/draw/deal/reset)</div>
+        </div>
+
+        <div style="border:2px solid #ff3a00;background:#1a0a00;padding:8px;margin-bottom:8px;border-radius:2px;">
+          <div style="color:#ff3a00;font-size:10px;">poker.js <span style="color:#884400;">(new)</span></div>
+          <div style="color:#884400;font-size:9px;margin-top:4px;">PokerGame · HandEvaluator<br>CPUPlayer · API layer</div>
+        </div>
+
+        <div style="border:1px solid #444;background:#1a1a1a;padding:8px;margin-bottom:8px;border-radius:2px;">
+          <div style="color:#888;font-size:10px;">style.css <span style="color:#555;">(existing, extended)</span></div>
+          <div style="color:#555;font-size:9px;margin-top:4px;">+ tab styles<br>+ poker table styles</div>
+        </div>
+      </div>
+
+      <!-- Arrow -->
+      <div style="padding-top:60px;color:#555;font-size:18px;">→</div>
+
+      <!-- Middle: Modules -->
+      <div style="flex:1;min-width:200px;">
+        <div style="color:#888;font-size:10px;margin-bottom:8px;text-transform:uppercase;">Modules in poker.js</div>
+
+        <div style="border:1px solid #ff3a00;padding:8px;margin-bottom:6px;border-radius:2px;">
+          <div style="color:#ff3a00;font-size:10px;">API Layer</div>
+          <div style="color:#884400;font-size:9px;margin-top:2px;">createDeck() · drawCards(n)<br>reshuffleDeck() · apiCardToCard()</div>
+        </div>
+
+        <div style="border:1px solid #ff3a00;padding:8px;margin-bottom:6px;border-radius:2px;">
+          <div style="color:#ff3a00;font-size:10px;">PokerGame</div>
+          <div style="color:#884400;font-size:9px;margin-top:2px;">phase state machine<br>chips · pot · blinds · actions</div>
+        </div>
+
+        <div style="border:1px solid #ff3a00;padding:8px;margin-bottom:6px;border-radius:2px;">
+          <div style="color:#ff3a00;font-size:10px;">HandEvaluator</div>
+          <div style="color:#884400;font-size:9px;margin-top:2px;">best 5 of 7 cards<br>rank + tiebreaker</div>
+        </div>
+
+        <div style="border:1px solid #ff3a00;padding:8px;margin-bottom:6px;border-radius:2px;">
+          <div style="color:#ff3a00;font-size:10px;">CPUPlayer</div>
+          <div style="color:#884400;font-size:9px;margin-top:2px;">decide(hand, board, pot, call)<br>basic strategy + 15% bluff</div>
+        </div>
+      </div>
+
+      <!-- Arrow -->
+      <div style="padding-top:60px;color:#555;font-size:18px;">→</div>
+
+      <!-- Right: External -->
+      <div style="flex:1;min-width:160px;">
+        <div style="color:#888;font-size:10px;margin-bottom:8px;text-transform:uppercase;">External</div>
+
+        <div style="border:1px dashed #444;padding:8px;border-radius:2px;">
+          <div style="color:#888;font-size:10px;">deckofcardsapi.com</div>
+          <div style="color:#555;font-size:9px;margin-top:4px;">
+            POST /new/shuffle/<br>
+            <span style="color:#ff3a00;">→ deck_id</span><br><br>
+            GET /{id}/draw/?count=N<br>
+            <span style="color:#ff3a00;">→ card objects</span><br><br>
+            GET /{id}/shuffle/<br>
+            <span style="color:#ff3a00;">→ reshuffle between hands</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Data flow note -->
+    <div style="margin-top:16px;border-top:1px solid #222;padding-top:12px;color:#555;font-size:9px;">
+      app.js Card class is reused in poker.js for hand evaluation — API card objects ({suit:"HEARTS",value:"ACE"}) are converted to Card instances. The existing Deck class is no longer used for dealing; the API owns deck state.
+    </div>
+
+  </div>
+</div>

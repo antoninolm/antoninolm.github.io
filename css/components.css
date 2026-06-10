@@ -111,6 +111,10 @@
 }
 
 /* ---------- Hero ---------- */
+.hero__tagline {
+  min-height: 4.5em;
+}
+
 .hero__grid {
   display: grid;
   grid-template-columns: 120px 1fr;

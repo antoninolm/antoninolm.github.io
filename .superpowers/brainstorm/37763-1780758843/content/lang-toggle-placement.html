@@ -1,0 +1,165 @@
+<style>
+  .header-mock {
+    font-family: 'Courier New', Courier, monospace;
+    background: #f4f1ea;
+    border: 3px solid #111;
+    box-shadow: 6px 6px 0 #111;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    margin-bottom: 1.5rem;
+    font-size: 0.78rem;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    color: #111;
+  }
+  .header-mock .logo {
+    color: #111;
+    font-size: 1rem;
+  }
+  .header-mock .logo .accent { color: #ff3a00; }
+  .header-mock .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0; padding: 0;
+  }
+  .header-mock .controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* Option A: Mirror of SUN/MOON — EN/IT side-by-side */
+  .lang-mirror {
+    display: flex;
+    gap: 0;
+    border: 2px solid #111;
+    box-shadow: 3px 3px 0 #111;
+    overflow: hidden;
+  }
+  .lang-mirror span {
+    padding: 3px 8px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    background: #f4f1ea;
+  }
+  .lang-mirror span.active {
+    background: #111;
+    color: #f4f1ea;
+  }
+  .lang-mirror span:first-child { border-right: 2px solid #111; }
+
+  /* Option B: Single label toggle — shows current language */
+  .lang-badge {
+    border: 2px solid #111;
+    box-shadow: 3px 3px 0 #111;
+    padding: 3px 10px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    background: #f4f1ea;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .lang-badge .arrow { color: #ff3a00; font-size: 0.6rem; }
+
+  /* Option C: Slash separator style */
+  .lang-slash {
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+  .lang-slash .active { color: #ff3a00; text-decoration: underline; text-underline-offset: 2px; }
+  .lang-slash .sep { color: #999; margin: 0 2px; }
+  .lang-slash .inactive { color: #888; }
+
+  .theme-switch-mock {
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    color: #888;
+    cursor: pointer;
+  }
+  .theme-switch-mock .active-icon { color: #111; }
+
+  .option-label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    color: #666;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+  .option-label strong { color: #111; }
+</style>
+
+<h2>Language Toggle — Button Style</h2>
+<p class="subtitle">Three options for how the EN/IT toggle looks in the header. All placed next to the theme switch.</p>
+
+<div class="options">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Split pill — EN | IT</h3>
+      <p>Both languages always visible, active one inverted. Mirrors the filter tab pattern already used on the projects section.</p>
+      <div style="margin-top:1rem">
+        <div class="header-mock">
+          <span class="logo"><span class="accent">[</span>ALM<span class="accent">]</span></span>
+          <ul class="nav-links"><li>About</li><li>Projects</li><li>Skills</li><li>Contact</li></ul>
+          <div class="controls">
+            <div class="lang-mirror"><span class="active">EN</span><span>IT</span></div>
+            <span class="theme-switch-mock"><span class="active-icon">SUN</span> / MOON</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Globe badge — current lang + arrow</h3>
+      <p>Shows only the active language with a small indicator. Click cycles to the other. Compact, minimal footprint in the header.</p>
+      <div style="margin-top:1rem">
+        <div class="header-mock">
+          <span class="logo"><span class="accent">[</span>ALM<span class="accent">]</span></span>
+          <ul class="nav-links"><li>About</li><li>Projects</li><li>Skills</li><li>Contact</li></ul>
+          <div class="controls">
+            <div class="lang-badge">EN <span class="arrow">⇄</span></div>
+            <span class="theme-switch-mock"><span class="active-icon">SUN</span> / MOON</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Slash separator — EN / IT</h3>
+      <p>Active language in accent orange with underline, inactive grayed out. Click inactive one to switch. Minimal, typographic — fits the brutalist code-comment style.</p>
+      <div style="margin-top:1rem">
+        <div class="header-mock">
+          <span class="logo"><span class="accent">[</span>ALM<span class="accent">]</span></span>
+          <ul class="nav-links"><li>About</li><li>Projects</li><li>Skills</li><li>Contact</li></ul>
+          <div class="controls">
+            <div class="lang-slash"><span class="active">EN</span><span class="sep">/</span><span class="inactive">IT</span></div>
+            <span class="theme-switch-mock"><span class="active-icon">SUN</span> / MOON</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -66,6 +66,41 @@
   box-shadow: var(--shadow-hard-sm);
 }
 
+/* ---------- Language switch pill ---------- */
+.lang-switch {
+  display: flex;
+  border: var(--border);
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+}
+
+.lang-switch__opt {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: var(--space-1) var(--space-3);
+  background: var(--bg);
+  color: var(--muted);
+  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+
+/* EN active by default */
+.lang-switch__opt--en {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* When lang-toggle checked → IT active, EN inactive */
+#lang-toggle:checked ~ .site-header .lang-switch__opt--en {
+  background: var(--bg);
+  color: var(--muted);
+}
+#lang-toggle:checked ~ .site-header .lang-switch__opt--it {
+  background: var(--ink);
+  color: var(--bg);
+}
+
 /* ---------- Scroll progress bar ---------- */
 #scroll-progress {
   position: fixed;

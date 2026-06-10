@@ -1,0 +1,79 @@
+<h2>Where does the poker game live on the page?</h2>
+<p class="subtitle">The existing page has a class architecture diagram and an interactive card demo. Where does the game fit?</p>
+
+<div class="split">
+
+  <div class="mockup" data-choice="replace" onclick="toggleSelect(this)" style="cursor:pointer;">
+    <div class="mockup-header">A — Game replaces the demo section</div>
+    <div class="mockup-body" style="font-family:monospace;font-size:11px;">
+      <div style="background:#1a1a1a;border-bottom:1px solid #333;padding:6px 10px;display:flex;justify-content:space-between;">
+        <span style="color:#ff3a00;">[ALM]</span>
+        <span style="color:#888;">DECK_OF_CARDS</span>
+      </div>
+      <div style="padding:10px;">
+        <div style="border:1px solid #333;padding:8px;margin-bottom:8px;">
+          <div style="color:#888;font-size:9px;margin-bottom:4px;">CLASS ARCHITECTURE</div>
+          <div style="color:#555;font-size:9px;">Card · Deck · Hand → (unchanged)</div>
+        </div>
+        <div style="border:2px solid #ff3a00;padding:8px;background:#111;">
+          <div style="color:#ff3a00;font-size:9px;margin-bottom:6px;">POKER vs CPU</div>
+          <div style="display:flex;gap:6px;justify-content:center;margin-bottom:6px;">
+            <div style="background:#222;padding:3px 6px;font-size:8px;color:#888;">COMMUNITY</div>
+            <div style="font-size:8px;color:#555;">· · ·</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:8px;color:#888;">
+            <span>YOU $1000</span>
+            <span style="color:#ff3a00;">POT $0</span>
+            <span>CPU $1000</span>
+          </div>
+          <div style="display:flex;gap:3px;justify-content:center;margin-top:6px;">
+            <div style="background:#222;border:1px solid #444;padding:2px 5px;font-size:8px;color:#f4f1ea;">FOLD</div>
+            <div style="background:#222;border:1px solid #444;padding:2px 5px;font-size:8px;color:#f4f1ea;">CALL</div>
+            <div style="background:#ff3a00;padding:2px 5px;font-size:8px;color:#fff;">RAISE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="padding:8px;font-size:11px;color:#aaa;">
+      Game takes over the bottom section. Old shuffle/draw demo removed. Cleaner focus — the whole page is about the poker game.
+    </div>
+  </div>
+
+  <div class="mockup" data-choice="tab" onclick="toggleSelect(this)" style="cursor:pointer;">
+    <div class="mockup-header">B — Tab toggle: Demo ↔ Game</div>
+    <div class="mockup-body" style="font-family:monospace;font-size:11px;">
+      <div style="background:#1a1a1a;border-bottom:1px solid #333;padding:6px 10px;display:flex;justify-content:space-between;">
+        <span style="color:#ff3a00;">[ALM]</span>
+        <span style="color:#888;">DECK_OF_CARDS</span>
+      </div>
+      <div style="padding:10px;">
+        <div style="border:1px solid #333;padding:8px;margin-bottom:8px;">
+          <div style="color:#888;font-size:9px;margin-bottom:4px;">CLASS ARCHITECTURE</div>
+          <div style="color:#555;font-size:9px;">Card · Deck · Hand → (unchanged)</div>
+        </div>
+        <div style="display:flex;gap:0;margin-bottom:0;">
+          <div style="border:1px solid #333;border-bottom:none;padding:4px 10px;font-size:9px;color:#888;background:#1a1a1a;">DEMO</div>
+          <div style="border:2px solid #ff3a00;border-bottom:none;padding:4px 10px;font-size:9px;color:#ff3a00;">POKER</div>
+        </div>
+        <div style="border:2px solid #ff3a00;border-top:none;padding:8px;background:#111;">
+          <div style="display:flex;justify-content:space-between;font-size:8px;color:#888;margin-bottom:6px;">
+            <span>YOU $1000</span>
+            <span style="color:#ff3a00;">POT $0</span>
+            <span>CPU $1000</span>
+          </div>
+          <div style="display:flex;gap:3px;justify-content:center;">
+            <div style="background:#222;border:1px solid #444;padding:2px 5px;font-size:8px;color:#f4f1ea;">FOLD</div>
+            <div style="background:#222;border:1px solid #444;padding:2px 5px;font-size:8px;color:#f4f1ea;">CALL</div>
+            <div style="background:#ff3a00;padding:2px 5px;font-size:8px;color:#fff;">RAISE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="padding:8px;font-size:11px;color:#aaa;">
+      CSS radio tabs (fits the existing zero-JS architecture) let you switch between the original demo and the poker game. Both preserved.
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:16px;font-size:12px;">Note: the existing page uses CSS-only state via radio/checkbox inputs — option B fits naturally into that pattern.</p>

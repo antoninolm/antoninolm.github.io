@@ -28,6 +28,7 @@
 
   <input type="checkbox" id="theme-toggle" class="state-input" aria-hidden="true" tabindex="-1">
   <input type="checkbox" id="nav-toggle"   class="state-input" aria-hidden="true" tabindex="-1">
+  <input type="checkbox" id="lang-toggle"  class="state-input" aria-hidden="true" tabindex="-1">
 
   <header class="site-header">
     <div class="container site-header__inner">
@@ -43,16 +44,21 @@
 
       <nav class="primary-nav" aria-label="Primary">
         <ul class="primary-nav__list">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about" data-i18n="nav.about">About</a></li>
+          <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </nav>
 
       <label for="theme-toggle" class="theme-switch" role="button" tabindex="0" aria-label="Toggle light and dark theme">
         <span class="theme-switch__icon theme-switch__icon--sun" aria-hidden="true">SUN</span>
         <span class="theme-switch__icon theme-switch__icon--moon" aria-hidden="true">MOON</span>
+      </label>
+
+      <label for="lang-toggle" class="lang-switch" role="button" tabindex="0" aria-label="Switch language">
+        <span class="lang-switch__opt lang-switch__opt--en">EN</span>
+        <span class="lang-switch__opt lang-switch__opt--it">IT</span>
       </label>
     </div>
   </header>
@@ -69,17 +75,17 @@
         <div class="hero__copy">
           <p class="hero__eyebrow">// PORTFOLIO_v1.0</p>
           <h1 class="hero__title">
-            HI, I&rsquo;M<br>
+            <span data-i18n="hero.greeting">HI, I&rsquo;M</span><br>
             <span class="hero__name">ANTONINO&nbsp;LA&nbsp;MANNA</span>.
           </h1>
           <br>
-          <p class="hero__tagline">
+          <p class="hero__tagline" data-i18n="hero.tagline">
             I am learning web development — currently exploring HTML, CSS, and JavaScript to build things that work and look good.
           </p>
           <br>
           <div class="hero__cta-row">
-            <a class="btn btn--primary" href="#projects">SEE THE WORK &rarr;</a>
-            <a class="btn btn--ghost" href="#contact">GET IN TOUCH</a>
+            <a class="btn btn--primary" href="#projects" data-i18n="hero.cta.work">SEE THE WORK &rarr;</a>
+            <a class="btn btn--ghost" href="#contact" data-i18n="hero.cta.contact">GET IN TOUCH</a>
           </div>
         </div>
       </div>
@@ -87,10 +93,10 @@
         <aside class="hero__card" aria-label="At a glance">
           <h2 class="hero__card-title">// AT_A_GLANCE</h2>
           <dl class="hero__card-list">
-            <dt>BASED IN</dt><dd>Earth, mostly</dd>
-            <dt>FOCUS</dt><dd>Static &amp; dynamic sites, JavaScript, Data Science, Music</dd>
-            <dt>YEARS</dt><dd>Many. Some good ones.</dd>
-            <dt>STATUS</dt><dd><span class="dot dot--live"></span>Available for work</dd>
+            <dt data-i18n="glance.basedin">BASED IN</dt><dd data-i18n="glance.basedin.val">Earth, mostly</dd>
+            <dt data-i18n="glance.focus">FOCUS</dt><dd>Static &amp; dynamic sites, JavaScript, Data Science, Music</dd>
+            <dt data-i18n="glance.years">YEARS</dt><dd data-i18n="glance.years.val">Many. Some good ones.</dd>
+            <dt data-i18n="glance.status">STATUS</dt><dd><span class="dot dot--live"></span><span data-i18n="glance.status.val">Available for work</span></dd>
           </dl>
         </aside>
       </div>
@@ -98,26 +104,26 @@
       <div class="container">
         <div class="about">
           <h2 class="section-label">// ABOUT</h2>
-          <p class="about__lede">
+          <p class="about__lede" data-i18n="about.lede">
             I work at the intersection of business and technology, bridging strategic thinking with hands-on execution.
             I enjoy getting my hands dirty, exploring how systems work under the hood, and learning by building, testing, and sometimes breaking things — because if you can break it, you can fix it.
             Driven by a continuous learning mindset, I’m constantly expanding my skills across software development, AI, and digital products.
           </p>
           <details class="about__more">
-            <summary>More about me &raquo;</summary>
+            <summary data-i18n="about.more">More about me &raquo;</summary>
             <div class="about__more-body">
               <p>
-                My Likes
+                <span data-i18n="about.likes">My Likes</span>
                 <ul>
-                  <li>- Building things hands-on and understanding how they work behind the scenes</li>
-                  <li>- Continuous learning, experimentation, and solving complex problems</li>
-                  <li>- Clean design, efficient workflows, and technology with real-world impact</li>
+                  <li data-i18n="about.like1">- Building things hands-on and understanding how they work behind the scenes</li>
+                  <li data-i18n="about.like2">- Continuous learning, experimentation, and solving complex problems</li>
+                  <li data-i18n="about.like3">- Clean design, efficient workflows, and technology with real-world impact</li>
                 </ul>
-                My Dislikes
+                <span data-i18n="about.dislikes">My Dislikes</span>
                 <ul>
-                  <li>- Overcomplicated solutions for simple problems</li>
-                  <li>- Staying only at the theoretical level without practical execution</li>
-                  <li>- Passive mindsets and resistance to learning new things</li>
+                  <li data-i18n="about.dislike1">- Overcomplicated solutions for simple problems</li>
+                  <li data-i18n="about.dislike2">- Staying only at the theoretical level without practical execution</li>
+                  <li data-i18n="about.dislike3">- Passive mindsets and resistance to learning new things</li>
                 </ul>
               </p>
             </div>
@@ -129,7 +135,7 @@
     <!-- PROJECTS ========================================================== -->
     <section id="projects" class="projects">
       <div class="container">
-        <h2 class="section-label">// PROJECTS</h2>
+        <h2 class="section-label" data-i18n="projects.title">// PROJECTS</h2>
 
         <div class="search-bar">
           <label for="project-search" class="search-bar__label">SEARCH_</label>
@@ -138,6 +144,7 @@
             id="project-search"
             class="search-bar__input"
             placeholder="project name, tech, keyword…"
+            data-i18n-placeholder="search.placeholder"
             autocomplete="off"
             spellcheck="false"
             aria-controls="project-grid"
@@ -167,10 +174,10 @@
               <div class="project-card__body">
                 <span class="project-card__tag">WEB</span>
                 <h3 class="project-card__title">DAVIS' BURGERS</h3>
-                <p class="project-card__desc">
+                <p class="project-card__desc" data-i18n="proj.burgers.desc">
                   A Front End for a Website of a Burger restaurant.
                 </p>
-                <span class="project-card__cta">VIEW &rarr;</span>
+                <span class="project-card__cta" data-i18n="card.view">VIEW &rarr;</span>
               </div>
             </a>
           </li>
@@ -183,10 +190,10 @@
               <div class="project-card__body">
                 <span class="project-card__tag">WEB</span>
                 <h3 class="project-card__title">HEALTHY RECIPES</h3>
-                <p class="project-card__desc">
+                <p class="project-card__desc" data-i18n="proj.recipes.desc">
                   A Landing page for a Blog of healthy recipes.
                 </p>
-                <span class="project-card__cta">VIEW &rarr;</span>
+                <span class="project-card__cta" data-i18n="card.view">VIEW &rarr;</span>
               </div>
             </a>
           </li>
@@ -199,10 +206,10 @@
               <div class="project-card__body">
                 <span class="project-card__tag">WEB</span>
                 <h3 class="project-card__title">WOODRUFF PORTFOLIO</h3>
-                <p class="project-card__desc">
+                <p class="project-card__desc" data-i18n="proj.woodruff.desc">
                   The Webpage for a Personal portfolio.
                 </p>
-                <span class="project-card__cta">VIEW &rarr;</span>
+                <span class="project-card__cta" data-i18n="card.view">VIEW &rarr;</span>
               </div>
             </a>
           </li>
@@ -215,10 +222,10 @@
               <div class="project-card__body">
                 <span class="project-card__tag">WEB</span>
                 <h3 class="project-card__title">WEATHER DASHBOARD</h3>
-                <p class="project-card__desc">
+                <p class="project-card__desc" data-i18n="proj.weather.desc">
                   Real-time weather data using the OpenWeatherMap API — current conditions and 5-day forecast.
                 </p>
-                <span class="project-card__cta">VIEW &rarr;</span>
+                <span class="project-card__cta" data-i18n="card.view">VIEW &rarr;</span>
               </div>
             </a>
           </li>
@@ -231,29 +238,14 @@
               <div class="project-card__body">
                 <span class="project-card__tag">WEB</span>
                 <h3 class="project-card__title">CALORIE COUNTER</h3>
-                <p class="project-card__desc">
+                <p class="project-card__desc" data-i18n="proj.calories.desc">
                   Meal nutrition lookup using the API Ninjas Nutrition API — calories, protein, carbs, and fat per ingredient.
                 </p>
-                <span class="project-card__cta">VIEW &rarr;</span>
+                <span class="project-card__cta" data-i18n="card.view">VIEW &rarr;</span>
               </div>
             </a>
           </li>
           <!-- Project 5 -->
-          <li class="project-card" data-cat="other">
-            <a href="#" class="project-card__link">
-              <div class="project-card__thumb">
-                <!-- <img src="assets/img/project-05.svg" alt="" loading="lazy"> -->
-              </div>
-              <div class="project-card__body">
-                <span class="project-card__tag">OTHER</span>
-                <h3 class="project-card__title">PROJECT_FIVE</h3>
-                <p class="project-card__desc">
-                  Ut enim ad minim physical-web hardware experiment that occasionally even works.
-                </p>
-                <span class="project-card__cta">VIEW &rarr;</span>
-              </div>
-            </a>
-          </li>
           <!-- Deck of Cards -->
           <li class="project-card" data-cat="web">
             <a href="projects/deck-of-cards/index.html" class="project-card__link">
@@ -263,10 +255,25 @@
               <div class="project-card__body">
                 <span class="project-card__tag">WEB</span>
                 <h3 class="project-card__title">DECK OF CARDS</h3>
-                <p class="project-card__desc">
+                <p class="project-card__desc" data-i18n="proj.cards.desc">
                   Object-Oriented JavaScript demo &mdash; Card, Deck, and Hand classes with an interactive draw and shuffle demo.
                 </p>
-                <span class="project-card__cta">VIEW &rarr;</span>
+                <span class="project-card__cta" data-i18n="card.view">VIEW &rarr;</span>
+              </div>
+            </a>
+          </li>
+          <li class="project-card" data-cat="web">
+            <a href="projects/to-do-list/index.html" class="project-card__link">
+              <div class="project-card__thumb">
+                <img src="./projects/imgs/to-do-list.jpeg" alt="" loading="lazy">
+              </div>
+              <div class="project-card__body">
+                <span class="project-card__tag">WEB</span>
+                <h3 class="project-card__title">TO-DO LIST</h3>
+                <p class="project-card__desc" data-i18n="proj.todo.desc">
+                  A React task manager built with Vite — add and remove tasks with a clean, minimal interface.
+                </p>
+                <span class="project-card__cta" data-i18n="card.view">VIEW &rarr;</span>
               </div>
             </a>
           </li>
@@ -278,10 +285,10 @@
               <div class="project-card__body">
                 <span class="project-card__tag">WEB</span>
                 <h3 class="project-card__title">LIRA APP</h3>
-                <p class="project-card__desc">
+                <p class="project-card__desc" data-i18n="proj.lira.desc">
                   A simple web application for managing tasks and notes.
                 </p>
-                <span class="project-card__cta">VIEW &rarr;</span>
+                <span class="project-card__cta" data-i18n="card.view">VIEW &rarr;</span>
               </div>
             </a>
         </ul>
@@ -293,7 +300,7 @@
       <div class="container">
         <h2 class="section-label">// GITHUB</h2>
         <p class="github-meta">
-          Latest public repos from
+          <span data-i18n="github.meta">Latest public repos from</span>
           <a href="https://github.com/antoninolm" target="_blank" rel="me noopener">@antoninolm &rarr;</a>
         </p>
         <ul class="github-grid" id="github-grid" aria-label="GitHub repositories" aria-live="polite"></ul>
@@ -303,7 +310,7 @@
     <!-- SKILLS ============================================================ -->
     <section id="skills" class="skills">
       <div class="container">
-        <h2 class="section-label">// SKILLS</h2>
+        <h2 class="section-label" data-i18n="skills.title">// SKILLS</h2>
         <ul class="skill-grid">
           <li class="skill"><span class="skill__name">HTML5</span><span class="skill__level">CORE</span></li>
           <li class="skill"><span class="skill__name">CSS3</span><span class="skill__level">CORE</span></li>
@@ -321,19 +328,19 @@
         </ul>
 
         <details class="faq">
-          <summary>Frequently asked &raquo;</summary>
+          <summary data-i18n="faq.summary">Frequently asked &raquo;</summary>
           <div class="faq__body">
             <details>
-              <summary>Why learning Web Dev now?</summary>
-              <p>Because you can build a great deal with the platform itself, and what you don&rsquo;t ship can&rsquo;t break. This site is the proof.</p>
+              <summary data-i18n="faq.q1">Why learning Web Dev now?</summary>
+              <p data-i18n="faq.a1">Because you can build a great deal with the platform itself, and what you don&rsquo;t ship can&rsquo;t break. This site is the proof.</p>
             </details>
             <details>
-              <summary>Are you available for freelance?</summary>
-              <p>Yes &mdash; small static sites, marketing pages, design-system audits. Drop a note via the contact section.</p>
+              <summary data-i18n="faq.q2">Are you available for freelance?</summary>
+              <p data-i18n="faq.a2">Yes &mdash; small static sites, marketing pages, design-system audits. Drop a note via the contact section.</p>
             </details>
             <details>
-              <summary>Do you write back-end code?</summary>
-              <p>I&rsquo;ve been known to. The front-of-the-front is where I do my best work.</p>
+              <summary data-i18n="faq.q3">Do you write back-end code?</summary>
+              <p data-i18n="faq.a3">I&rsquo;ve been known to. The front-of-the-front is where I do my best work.</p>
             </details>
           </div>
         </details>
@@ -344,8 +351,8 @@
     <section id="contact" class="contact">
       <div class="container contact__grid">
         <div class="contact__intro">
-          <h2 class="section-label">// CONTACT</h2>
-          <p class="contact__lede">
+          <h2 class="section-label" data-i18n="contact.title">// CONTACT</h2>
+          <p class="contact__lede" data-i18n="contact.lede">
             Got a project, an idea, or a just-curious question? Send a signal.
           </p>
           <ul class="social-list">
@@ -360,21 +367,21 @@
           <p class="contact-form__note">// FORM_NOTE: validated before opening your mail client.</p>
 
           <label class="field">
-            <span class="field__label">NAME</span>
-            <input class="field__input" type="text" name="name" required autocomplete="name" placeholder="Your name">
+            <span class="field__label" data-i18n="form.name">NAME</span>
+            <input class="field__input" type="text" name="name" required autocomplete="name" placeholder="Your name" data-i18n-placeholder="form.name.ph">
           </label>
 
           <label class="field">
-            <span class="field__label">EMAIL</span>
-            <input class="field__input" type="email" name="email" required autocomplete="email" placeholder="you@example.com">
+            <span class="field__label" data-i18n="form.email">EMAIL</span>
+            <input class="field__input" type="email" name="email" required autocomplete="email" placeholder="you@example.com" data-i18n-placeholder="form.email.ph">
           </label>
 
           <label class="field">
-            <span class="field__label">MESSAGE</span>
-            <textarea class="field__input field__input--area" name="message" required rows="5" placeholder="Say something."></textarea>
+            <span class="field__label" data-i18n="form.message">MESSAGE</span>
+            <textarea class="field__input field__input--area" name="message" required rows="5" placeholder="Say something." data-i18n-placeholder="form.message.ph"></textarea>
           </label>
 
-          <button class="btn btn--primary" type="submit">SEND &rarr;</button>
+          <button class="btn btn--primary" type="submit" data-i18n="form.send">SEND &rarr;</button>
         </form>
       </div>
     </section>
@@ -385,14 +392,15 @@
     <div class="container site-footer__inner">
       <p class="site-footer__copy">
         &copy; <time datetime="2026">2026</time> YOUR&nbsp;NAME &mdash;
-        <span>Hand-built with HTML &amp; CSS and JavaScript.</span>
+        <span data-i18n="footer.copy">Hand-built with HTML &amp; CSS and JavaScript.</span>
       </p>
       <p class="site-footer__meta">
-        <a href="#top">BACK TO TOP &uarr;</a>
+        <a href="#top" data-i18n="footer.top">BACK TO TOP &uarr;</a>
       </p>
     </div>
   </footer>
 
+  <script defer src="js/i18n.js"></script>
   <script defer src="js/typing.js"></script>
   <script defer src="js/scroll-progress.js"></script>
   <script defer src="js/search.js"></script>

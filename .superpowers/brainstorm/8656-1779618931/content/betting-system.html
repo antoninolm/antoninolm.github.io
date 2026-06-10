@@ -1,0 +1,78 @@
+<h2>Should the game have a chips & betting system?</h2>
+<p class="subtitle">This shapes the whole game loop — how rounds start, what actions are available, and what winning means.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="full-betting" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#111;padding:14px;font-family:monospace;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <div style="font-size:10px;color:#888;">CPU CHIPS</div>
+        <div style="font-size:13px;color:#f4f1ea;">$850</div>
+      </div>
+      <div style="background:#1a1a1a;border:1px solid #333;padding:8px;text-align:center;margin-bottom:10px;">
+        <div style="font-size:10px;color:#888;margin-bottom:2px;">POT</div>
+        <div style="font-size:16px;color:#ff3a00;">$120</div>
+        <div style="font-size:9px;color:#555;">blinds: $10 / $20</div>
+      </div>
+      <div style="display:flex;gap:4px;justify-content:center;">
+        <div style="background:#222;border:1px solid #444;padding:4px 8px;font-size:10px;color:#f4f1ea;">FOLD</div>
+        <div style="background:#222;border:1px solid #444;padding:4px 8px;font-size:10px;color:#f4f1ea;">CALL $20</div>
+        <div style="background:#ff3a00;border:1px solid #ff3a00;padding:4px 8px;font-size:10px;color:#fff;">RAISE</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+        <div style="font-size:10px;color:#888;">YOUR CHIPS</div>
+        <div style="font-size:13px;color:#f4f1ea;">$1,150</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Full Betting System</h3>
+      <p>Both players start with chips (e.g. $1,000). Blinds, call/raise/fold actions each round. Win the pot; game ends when one player is bust.</p>
+      <p style="color:#ff3a00;font-size:12px;margin-top:6px;">⚡ Most realistic — but more UI and logic to build</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="simple-betting" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#111;padding:14px;font-family:monospace;">
+      <div style="background:#1a1a1a;border:1px solid #333;padding:8px;text-align:center;margin-bottom:10px;">
+        <div style="font-size:10px;color:#888;margin-bottom:2px;">HAND #3 OF 5</div>
+        <div style="font-size:16px;color:#ff3a00;">YOU: 2 wins</div>
+        <div style="font-size:11px;color:#888;">CPU: 0 wins · 1 tie</div>
+      </div>
+      <div style="display:flex;gap:4px;justify-content:center;margin-bottom:8px;">
+        <div style="background:#222;border:1px solid #444;padding:4px 12px;font-size:10px;color:#f4f1ea;">CHECK</div>
+        <div style="background:#ff3a00;border:1px solid #ff3a00;padding:4px 12px;font-size:10px;color:#fff;">BET</div>
+        <div style="background:#222;border:1px solid #444;padding:4px 12px;font-size:10px;color:#f4f1ea;">FOLD</div>
+      </div>
+      <div style="font-size:9px;color:#555;text-align:center;">fixed bet size per round</div>
+    </div>
+    <div class="card-body">
+      <h3>Simplified (Win/Loss Score)</h3>
+      <p>Play a set of hands (e.g. best of 5 or 10). Fixed bet per hand — win the hand, score a point. No running chip total to manage.</p>
+      <p style="color:#aaa;font-size:12px;margin-top:6px;">✓ Easier to build, still feels like poker</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="no-betting" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#111;padding:14px;font-family:monospace;text-align:center;">
+      <div style="font-size:10px;color:#888;margin-bottom:10px;">SHOWDOWN</div>
+      <div style="display:flex;justify-content:space-around;margin-bottom:10px;">
+        <div>
+          <div style="font-size:9px;color:#888;">YOU</div>
+          <div style="font-size:12px;color:#ff3a00;">Full House</div>
+        </div>
+        <div>
+          <div style="font-size:9px;color:#888;">CPU</div>
+          <div style="font-size:12px;color:#f4f1ea;">Two Pair</div>
+        </div>
+      </div>
+      <div style="border:1px solid #ff3a00;padding:6px;font-size:11px;color:#ff3a00;">YOU WIN THIS HAND</div>
+      <div style="font-size:9px;color:#555;margin-top:8px;">no chips · pure hand comparison</div>
+    </div>
+    <div class="card-body">
+      <h3>No Betting (Pure Hands)</h3>
+      <p>Deal, play the board, reveal hands, compare. Who has the better poker hand wins the round. No chips, no raising — just the card game itself.</p>
+      <p style="color:#aaa;font-size:12px;margin-top:6px;">✓ Simplest — focus is on hand evaluation logic</p>
+    </div>
+  </div>
+
+</div>
